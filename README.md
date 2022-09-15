@@ -1,3 +1,13 @@
+# Proyecto Individual 1- Data 03- Soy Henry  
+# Presentacion:
+
+## 1) Toda la carga y procesamiento de los datasets estan en main.ipynb
+## 2) Todas las consultas hechas en la base de datos estan en Consultas.sql (adjunto todas las consultas hechas en su debido orden)
+## 3) El video está en: https://youtu.be/B6LUz0BnQHI
+
+![image](https://i.ibb.co/9t3dD7D/blog-zenvia-imagens-3.png)
+---
+---
 # Proyecto Individual 1- Data 03- Soy Henry   
 ## Creación de una API
 ![image](https://user-images.githubusercontent.com/108296379/182138583-9011699a-f009-4454-885e-80dca182b6c8.png)
