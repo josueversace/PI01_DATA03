@@ -1,4 +1,5 @@
 /* Comprobamos si funcionan nuestras tablas exportadas */
+use PI;
 
 select *
 from drivers;
@@ -27,20 +28,30 @@ select year as año, count(year) as total_carreras
 from races
 group by año
 order by total_carreras desc
-;
+limit 1 ;
 
 /* 2. piloto
 con mayor cantidad de primeros puestos, considerando los 5 primeros puestos */
 
-select d.driverId, d.forename, d.surname , count(r.position) as total
-from results r join drivers d
-    on d.driverId = r.driverId
-where r.position between 1 and 5
-group by d.driverId
-order by total desc
+select driverId, count(position) as total_veces
+from results
+where position between 1 and 5
+group by driverId
+order by total_veces desc
+limit 3
+;
+
+select d
+.forename, d.surname, un.total_veces
+from drivers d join (select driverId, count(position) as total_veces
+                    from results
+                    where position between 1 and 5
+                    group by driverId
+                    order by total_veces desc
+                    limit 3) un
+on d.driverId = un.driverId
 limit 1
 ;
-select * from races;
 
 
 /* 3. Nombre del circuito más corrido */
@@ -101,4 +112,5 @@ from drivers d join (select r.driverId, sum(r.points) as total_puntos
     order by total_puntos desc) vu
     on d.driverId = vu.driverId
 order by vu.total_puntos desc
+limit 1
 ;
